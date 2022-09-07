@@ -9,7 +9,7 @@
 
 int is_path_form(sh_t *data)
 {
-	if (_strchr(data->args[0], '/') != 0)
+	if (strchr(data->args[0], '/') != 0)
 	{
 		data->cmd = _strdup(data->args[0]);
 		return (SUCCESS);
