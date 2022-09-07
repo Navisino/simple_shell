@@ -4,9 +4,9 @@
  * @path_name: a pointer to the struct of data
  *
  * Return: (Success) a positive number
- * ------- (Fail) a negative number
+ * Fail, a negative number
  */
-char *_getenv(char *path_name)
+char *_getenv(const char *name)
 {
 	char **environ_cursor, *env_ptr, *name_ptr;
 
