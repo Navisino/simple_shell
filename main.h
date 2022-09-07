@@ -19,4 +19,10 @@ char *_fullpathbuffer(char **av, char *PATH,char *copy);
 int checkbuiltins(char **av, char *buffer, int exitstatus);
 int _forkprocess(char **av, char *buffer, char *fullpathbuffer);
 
+int main(int ac, char **av, char **env);
+void prompt(void);
+void handle(int signals);
+void _EOF(char *buffer);
+void shell_exit(char **command);
+
 #endif
