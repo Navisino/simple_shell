@@ -79,7 +79,7 @@ char *prompt_n_read(char *path_str, char **array_path);
 char **split_buf(char *buf);
 int token_count_buf(char *buf);
 int fork_n_exec(char *str_buf_path, char **array_buf);
-char *_getenv(const char *name);
+char *_getenv(const char *name); /* tools */
 char **split_path(char *path_str);
 int token_count_path(char *path_str);
 int _strlen(char *s);
@@ -123,7 +123,6 @@ int exit_status);
 /* Tools */
 void *fill_an_array(void *a, int el, unsigned int len);
 void signal_handler(int signo);
-char *_getenv(char *path_name);
 void index_cmd(sh_t *data);
 void array_rev(char *arr, int len);
 
