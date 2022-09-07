@@ -9,7 +9,7 @@
 
 int is_path_form(sh_t *data)
 {
-	if (strchr(data->args[0], '/') != 0)
+	if (_strchr(data->args[0], '/') != 0)
 	{
 		data->cmd = _strdup(data->args[0]);
 		return (SUCCESS);
@@ -36,6 +36,17 @@ void is_short_form(sh_t *data)
 	while (token)
 	{
 		data->cmd = _strcat(token, data->args[0]);
+		if (stat(data->cmd, &st) == 0)
+		{
+			exist_flag += 1;
+			break;
+		}
+		free(data->cmd);
+		token = strtok(NULL, DELIMITER);
+	}
+	if (exist_flag == 0)
+	{
+		data->cmd = _strdup(data->args[0]);
 	}
 	free(_path);
 }
