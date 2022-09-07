@@ -12,9 +12,9 @@ int is_path_form(sh_t *data)
 	if (_strchr(data->args[0], '/') != 0)
 	{
 		data->cmd = _strdup(data->args[0]);
-		return (Success);
+		return (SUCCESS);
 	}
-	return (Fail);
+	return (FAIL);
 }
 #define DELIMITER ":"
 /**
@@ -60,7 +60,7 @@ int is_builtin(sh_t *data)
 	while ((blt + i)->cmd)
 	{
 		if (_strcmp(data->args[0], (blt + i)->cmd) == 0)
-			return (Success);
+			return (SUCCESS);
 		i++;
 	}
 	return (NEUTRAL);
