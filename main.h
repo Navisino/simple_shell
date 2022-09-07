@@ -50,6 +50,11 @@ typedef struct sh_data
 	char *env;
 } sh_t;
 
+typedef struct builtin
+{
+	char *cmd;
+	int (*f)(sh_t *data);
+} blt_t;
 
 int prompt(void);
 char *_read(void);
