@@ -1,4 +1,4 @@
-#include "tools.h"
+#include "main.h"
 /**
  * _getenv - gets the path
  * @path_name: a pointer to the struct of data
