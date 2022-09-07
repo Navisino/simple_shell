@@ -1,6 +1,7 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+/* Header Files*/
 #include <stdio.h> 
 #include <stdlib.h> 
 #include <errno.h>
@@ -12,7 +13,43 @@
 #include <string.h>
 #include <signal.h>
 
+/* Global Variable*/
 extern char **environ;
+
+/* Macros */
+#define BUFSIZE 256
+#define TOKENSIZE 64
+#define PRINT(c) (write(STDOUT_FILENO, c, _strlen(c)))
+#define PROMPT "$ "
+#define SUCCESS (1)
+#define FAIL (-1)
+#define NEUTRAL (0)
+
+/* Struct */
+/**
+ * struct sh_data - A Global data structure
+ * @line: Line input
+ * @args: arguments token
+ * @error_msg: global path
+ * @cmd: parsed command
+ * @index: command index
+ * @oldpwd: old path visited
+ * @env: environment
+ *
+ * Description: Structure containing all the variables needed
+ */
+
+typedef struct sh_data
+{
+	char *line;
+	char **args;
+	char *cmd;
+	char *error_msg;
+	char *oldpwd;
+	unsigned long int index;
+	char *env;
+} sh_t;
+
 
 int prompt(void);
 char *_read(void);
@@ -65,5 +102,10 @@ void exit_(char **array_buf, char *buf, char *path_str, char **array_path,
 int exit_status);
 void help_(char **array_buf, char *buf, char *path_str, char **array_path,
 int exit_status);
+
+/* Parses */
+int is_path_form(sh_t *data);
+int is_builtin(sh_t *data);
+void is_short_from(sh_t *data);
 
 #endif
