@@ -50,6 +50,13 @@ typedef struct sh_data
 	char *env;
 } sh_t;
 
+/**
+ * struct builtin - Manage the builtin functions
+ * @cmd: the command line on string form
+ * @f: the associated function
+ *
+ * Description: this struct made to manage builtins cmd
+ */
 typedef struct builtin
 {
 	char *cmd;
@@ -92,7 +99,13 @@ int handle_path_cmd(char **av, int counter, char **array_buf);
 int handle_nopath_cmd(char **array_path, char **av, char **array_buf,
 int counter, char *str_buf_path);
 
-
+/**
+ * struct builtins - Manage the builtins functions
+ * @cmd: the command line on string form
+ * @f: the associated function
+ *
+ * Description: this struct made to manage builtins cmd
+ */
 typedef struct builtins
 {
 	char *name;
