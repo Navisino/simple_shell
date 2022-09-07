@@ -101,7 +101,7 @@ int counter, char *str_buf_path);
 
 /**
  * struct builtins - Manage the builtins functions
- * @cmd: the command line on string form
+ * @name: the command line on string form
  * @f: the associated function
  *
  * Description: this struct made to manage builtins cmd
