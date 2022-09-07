@@ -1,7 +1,7 @@
 #include "main.h"
 /**
  * _getenv - gets the path
- * @path_name: a pointer to the struct of data
+ * @name: a pointer to the struct of data
  *
  * Return: (Success) a positive number
  * Fail, a negative number
@@ -14,7 +14,7 @@ char *_getenv(const char *name)
 	while (*environ_cursor)
 	{
 		env_ptr = *environ_cursor;
-		name_ptr = path_name;
+		name_ptr = name;
 		while (*env_ptr == *name_ptr)
 		{
 			if (*env_ptr == '=')
