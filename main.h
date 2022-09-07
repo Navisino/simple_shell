@@ -2,10 +2,10 @@
 #define MAIN_H
 
 /* Header Files*/
-#include <stdio.h> 
-#include <stdlib.h> 
+#include <stdio.h>
+#include <stdlib.h>
 #include <errno.h>
-#include <unistd.h> 
+#include <unistd.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <sys/wait.h>
@@ -58,7 +58,7 @@ typedef struct builtin
 
 int prompt(void);
 char *_read(void);
-char *_fullpathbuffer(char **av, char *PATH,char *copy);
+char *_fullpathbuffer(char **av, char *PATH, char *copy);
 int checkbuiltins(char **av, char *buffer, int exitstatus);
 int _forkprocess(char **av, char *buffer, char *fullpathbuffer);
 
@@ -79,7 +79,6 @@ int _strlen(char *s);
 char *buf_path_cat(int counter, char *av, char *array_buf, char **array_path);
 int _status(char *str_buf_path);
 char *_strcat(char *dest, char *src);
-/* moved to memory section */
 char *_strdup(char *str);
 int _strcmp(char *s1, char *s2);
 int _putchar(char c);
