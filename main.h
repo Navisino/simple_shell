@@ -74,7 +74,7 @@ int _strlen(char *s);
 char *buf_path_cat(int counter, char *av, char *array_buf, char **array_path);
 int _status(char *str_buf_path);
 char *_strcat(char *dest, char *src);
-char *_memset(char *s, char b, unsigned int n);
+/* moved to memory section */
 char *_strdup(char *str);
 int _strcmp(char *s1, char *s2);
 int _putchar(char c);
@@ -102,6 +102,27 @@ void exit_(char **array_buf, char *buf, char *path_str, char **array_path,
 int exit_status);
 void help_(char **array_buf, char *buf, char *path_str, char **array_path,
 int exit_status);
+
+/* Tools */
+void *fill_an_array(void *a, int el, unsigned int len);
+void signal_handler(int signo);
+char *_getenv(char *path_name);
+void index_cmd(sh_t *data);
+void array_rev(char *arr, int len);
+
+/* More Tools */
+char *_itoa(unsigned int n);
+int intlen(int num);
+int _atoi(char *c);
+int print_error(sh_t *data);
+int write_history(sh_t *data);
+int _isalpha(int c);
+
+/* Memory */
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
+char *_memset(char *s, char b, unsigned int n);
+char *_memcpy(char *dest, char *src, unsigned int n);
+int free_data(sh_t *);
 
 /* Parses */
 int is_path_form(sh_t *data);
