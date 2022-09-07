@@ -4,7 +4,7 @@
  * main - the main function
  *
  * Return: (Success) 0 always
- * ------- (Fail) we drop out the looser :)
+ * (Fail)
  */
 int main(void)
 {
