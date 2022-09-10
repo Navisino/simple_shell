@@ -9,6 +9,14 @@
 #include <errno.h>
 #include <signal.h>
 
+/**
+* prompt_n_read - Function for prompting and reading
+* split_buf - Funtion 2
+* token_count_buf - 3
+*
+* Return: 0
+*/
+
 char *prompt_n_read(char *path_str, char **array_path)
 {
 	char *buf = NULL;
