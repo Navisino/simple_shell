@@ -1,5 +1,15 @@
 #include "main.h"
 
+/**
+* main - Funtion
+* prompt - Funtion 2
+* handle - Function 3
+* _EOF - Funtion 4
+* shell_exit - Funtion 5
+*
+* Return - 0
+*/
+
 int main(int ac, char **av, char **env)
 {
 	char *buffer = NULL, **command = NULL;
@@ -18,7 +28,7 @@ int main(int ac, char **av, char **env)
 			_EOF(buffer);
 		else if (*buffer == '\n')
 			free(buffer);
-		else 
+		else
 		{
 		buffer[_strlen(buffer) - 1] = '\0';
 		command = tokening(buffer, " \0");
