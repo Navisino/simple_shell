@@ -7,7 +7,7 @@
 * _EOF - Funtion 4
 * shell_exit - Funtion 5
 *
-* Return - 0
+* Return: 0
 */
 
 int main(int ac, char **av, char **env)
