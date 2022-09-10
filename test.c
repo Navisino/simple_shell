@@ -1,7 +1,9 @@
 #include <stdio.h>
 
 /**
- * This is a test file 
+ * main - Main funtion for test file
+ * 
+ * Return: 0
  */
 
 int main(void)
@@ -9,14 +11,14 @@ int main(void)
 	int x = 7;
 	int y = 3;
 	
-	if(x > y)
+	if (x > y)
 	{
 		printf("x is greater than y.");
 	}
-	else 
+	else
 	{
 		printf("y is greater than x.");
 	}
 
-	return(0);
-}	
+	return (0);
+}
