@@ -1,91 +1,39 @@
-#include "main.h"
+#include "shell.h"
 
 /**
- * _realloc - reallocates memory block
- * @ptr: pointer to the previous memory
- * @old_size: the old size
- * @new_size: the new size
+ * free_grid - frees a 2 dimensional grid.
+ * @grid: multidimensional array of integers.
+ * @height: height of the grid.
  *
- * Return: a pointer to the newly allocated memory
+ * Return: no return
  */
-void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
+void free_grid(char **grid, int height)
 {
-	void *result;
+	height -= 1;
 
-	if (new_size == old_size)
-		return (ptr);
-	if (new_size == 0 && ptr)
+	if (grid != NULL && height != 0)
 	{
-		free(ptr);
-		return (NULL);
+		for (; height >= 0; height--)
+		{
+			free(grid[height]);
+		}
+		free(grid);
 	}
-	result = malloc(new_size);
-	if (result == NULL)
-		return (NULL);
-	if (ptr == NULL)
-	{
-		fill_an_array(result, '\0', new_size);
-		free(ptr);
-	}
-	else
-	{
-		_memcpy(result, ptr, old_size);
-		free(ptr);
-	}
-	return (result);
 }
-/**
- * _memset - fills a memory with constant byte
- * @s: pointer to memory area
- * @n: first n bytes
- * @byt: constant byte
- *
- * Return: A pointer to a character
- */
-char *_memset(char *s, char byt, unsigned int n)
-{
-	unsigned int i;
 
-	for (i = 0; i < n; i++)
-	{
-		s[i] = byt;
-	}
-	return (s);
-}
 /**
- * free_data - frees data
- * @data: the data structure
+ * free_cmd - frees cmd envar
  *
- * Return: (Success) positive number
- * ------- (Fail) negative number
+ * @cmd: cmd struct
+ * Return: no return
  */
-int free_data(sh_t *data)
+void free_cmd(cmd_t *cmd)
 {
-	free(data->line);
-	data->line = NULL;
-	free(data->args);
-	data->args = NULL;
-	free(data->cmd);
-	data->cmd = NULL;
-	free(data->error_msg);
-	data->error_msg = NULL;
-	return (0);
-}
-/**
- * _memcpy - cpies memory area
- * @dest: Destination memory area
- * @src: Source memory area
- * @n: Amount of memory byte
- *
- * Return: A pointer to dest
- */
-char *_memcpy(char *dest, char *src, unsigned int n)
-{
-	unsigned int i;
+	int i;
 
-	for (i = 0; i < n; i++)
-	{
-		dest[i] = src[i];
-	}
-	return (dest);
+	for (i = 0; cmd->envar[i]; i++)
+		free(cmd->envar[i]);
+
+	free(cmd->envar);
+	free(cmd->pid);
 }
